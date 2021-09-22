@@ -3,8 +3,11 @@ import AddUser from './components/AddUser'
 import Users from './components/Users'
 
 class App extends Component {
+  
   constructor(props){
     super(props)
+    this.deleteUser = this.deleteUser.bind(this);
+    this.addUser = this.addUser.bind(this);
     this.state = {
       users:[
         {
@@ -35,14 +38,30 @@ class App extends Component {
       ]
     }
   }
+  addUser(newUser){
+    let updatedUsers = this.state.users;
+
+    updatedUsers.push(newUser)
+    this.setState({
+      users : updatedUsers
+    })
+  }
+  deleteUser(id){
+    let updatedUsers = this.state.users;
+
+    updatedUsers = updatedUsers.filter(user =>user.id !== id);
+    this.setState({
+      users : updatedUsers
+    })
+  }
   render() {
     return (
       <div className="container">
-        <h4>User App</h4>
+        <h4 class="nav justify-content-center">User App</h4>
         <hr />
-        <AddUser/>
+        <AddUser addUser={this.addUser}/>
         <hr />
-        <Users users= {this.state.users}/>
+        <Users deleteUser={this.deleteUser} users= {this.state.users}/>
       </div>
     )
   }
