@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 
 class User extends Component {
-    onDeleteClick(e){
-
+    onDeleteClick(id,e){
+        const {deleteUser} = this.props;
+        deleteUser(id);
     }
     render() {
         const {id,name,email} = this.props;
@@ -11,7 +12,7 @@ class User extends Component {
                 <td>{id}</td>
                 <td>{name}</td>
                 <td>{email}</td>
-                <td><button onClick={this.onDeleteClick.bind()} className="btn btn-danger">Delete</button></td>
+                <td><button onClick={this.onDeleteClick.bind(this,id)} className="btn btn-danger">Delete</button></td>
             </tr>
         )    
     }
