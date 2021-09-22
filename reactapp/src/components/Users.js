@@ -5,7 +5,7 @@ class Users extends Component {
     render() {
         const {users,deleteUser} = this.props
         return (
-            <table className="table table-dark">
+            <table className="table table-warning">
                 <thead>
                     <tr>
                         <th scope="col">id</th>

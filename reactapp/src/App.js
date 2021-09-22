@@ -57,7 +57,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <h4 class="nav justify-content-center">User App</h4>
+        <h3 className="nav justify-content-center text-info">User App</h3>
         <hr />
         <AddUser addUser={this.addUser}/>
         <hr />
